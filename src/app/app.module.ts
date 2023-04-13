@@ -4,15 +4,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BodyComponent } from './body/body.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProductsComponent } from './products/products.component';
-import { StatisticsComponent } from './statistics/statistics.component';
-import { CoupensComponent } from './coupens/coupens.component';
-import { PagesComponent } from './pages/pages.component';
-import { MediaComponent } from './media/media.component';
-import { SettingsComponent } from './settings/settings.component';
+import { BodyComponent } from './view/body/body.component';
+import { SidenavComponent } from './view/navbars/sidenav/sidenav.component';
+import { DashboardComponent } from './view/dashboard/dashboard.component';
+import { ProductsComponent } from './view/Devoir/products.component';
+import { StatisticsComponent } from './view/statistics/statistics.component';
+import { CoupensComponent } from './view/Abscence/coupens.component';
+import { PagesComponent } from './view/list-eleve/pages.component';
+import { MediaComponent } from './view/media/media.component';
+import { SettingsComponent } from './view/settings/settings.component';
+import { HornavComponent } from './view/navbars/hornav/hornav.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SettingsComponent } from './settings/settings.component';
     CoupensComponent,
     PagesComponent,
     MediaComponent,
-    SettingsComponent
+    SettingsComponent,
+    HornavComponent
   ],
   imports: [
     BrowserModule,

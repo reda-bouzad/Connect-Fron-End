@@ -1,0 +1,11 @@
+.container {
+  position: relative;
+}
+
+.hornav {
+  background-color: red;
+  width: 100vw;
+  height: 6rem;
+}
+
+/*# sourceMappingURL=hornav.component.css.map */

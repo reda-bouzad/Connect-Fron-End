@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  width: 10rem;
+  height: 10rem;
+  background-color: red;
+}
+
+/*# sourceMappingURL=dashboard.component.css.map */
