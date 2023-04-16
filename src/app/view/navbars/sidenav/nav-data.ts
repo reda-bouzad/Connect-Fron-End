@@ -10,7 +10,7 @@ export const navbarData = [
         label: 'Devoir'
     },
     {
-        routeLink: 'statistics',
+        routeLink: 'communication',
         icon: 'fal fa-chart-bar',
         label: 'Communication'
     },
@@ -20,7 +20,7 @@ export const navbarData = [
         label: 'Abscence'
     },
     {
-        routeLink: 'list-eleve',
+        routeLink: 'etudiant-list',
         icon: 'fal fa-file',
         label: 'Liste des éleves'
     },

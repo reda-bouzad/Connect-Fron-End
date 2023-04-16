@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-hornav',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./hornav.component.scss']
 })
 export class HornavComponent {
+  navLink:String = "";
+  constructor() {
+  }
+
 
 }

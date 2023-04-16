@@ -15,6 +15,9 @@
   width: 100%;
   padding: 0.7rem 0.7rem 3rem;
 }
+.sidenav .logo-container .logo-img:hover {
+  cursor: pointer;
+}
 .sidenav .logo-container .logo {
   background: #fff;
   text-align: center;

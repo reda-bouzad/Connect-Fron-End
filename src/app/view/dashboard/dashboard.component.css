@@ -1,12 +1,46 @@
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-column-gap: 5rem;
 }
 
 .box {
-  width: 10rem;
-  height: 10rem;
-  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15rem;
+  height: 6rem;
+  border-radius: 1.2rem;
+  background-color: white;
+}
+
+.icon {
+  padding: 10px;
+}
+
+.box:hover {
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6); /* Increase the box shadow when the user hovers over the box */
+}
+
+.box-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-text-primary {
+  white-space: nowrap; /* This will prevent line breaks within the text */
+  color: #4b4242;
+  font-family: C059;
+}
+
+.box-text-secondary {
+  display: block; /* This will make the adjacent element appear on a new line */
+  color: #6e91be;
 }
 
 /*# sourceMappingURL=dashboard.component.css.map */
