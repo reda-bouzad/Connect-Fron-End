@@ -1,0 +1,50 @@
+
+
+
+<div class="container">
+<p-tabView>
+  <p-tabPanel header="classe 1">
+    <p-table #dtEtudiant
+             styleClass="p-datatable-gridlines" [value]="etudiants" [globalFilterFields]="['nom']">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="nom" style="width:20%">Name <p-sortIcon field="nom"></p-sortIcon></th>
+          <th pSortableColumn="prenom" style="width:20%"> Prenom <p-sortIcon field="prenom"></p-sortIcon></th>
+          <th>DateNaissance</th>
+        </tr>
+        <tr>
+          <th>
+            <input pInputText type="text" placeholder="Search by name" (input)="dtEtudiant.filter($any($event.target).value, 'nom', 'contains')">
+          </th>
+          <th>
+            <input pInputText type="text" placeholder="Search by prenom" (input)="dtEtudiant.filter($any($event.target).value, 'prenom', 'contains')">
+          </th>
+          <th>
+            <input pInputText type="date" placeholder="Search by date" (input)="dtEtudiant.filter($any($event.target).value, 'dateNaissance', 'contains')">
+
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-e>
+        <tr>
+          <td>{{e.nom}}</td>
+          <td>{{e.prenom}}</td>
+          <td>{{e.dateNaissance}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-tabPanel>
+  <p-tabPanel header="classe 2">
+    <p>
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+      ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+    </p>
+  </p-tabPanel>
+  <p-tabPanel header="classe 3">
+    <p>
+      At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+      qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+    </p>
+  </p-tabPanel>
+</p-tabView>
+</div>

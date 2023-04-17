@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EmployeeService} from "../../controller/service/employee.service";
 import {EtudiantService} from "../../controller/service/etudiant.service";
+import {forkJoin} from "rxjs";
 
 @Component({
   selector: 'app-dashboard',
@@ -8,6 +9,48 @@ import {EtudiantService} from "../../controller/service/etudiant.service";
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+
+  data: any;
+  options: any;
+  revenues:number = 11500;
+
+
+
+  constructor(private employeeService:EmployeeService , private etudiantService:EtudiantService) {
+
+    this.etudiantService.counter().subscribe(
+      data => {
+        this.nombreTotalEtudiant = data;
+        return this.nombreTotalEtudiant
+      }
+    )
+
+    this.employeeService.counter().subscribe(
+      data => {
+        this.nombreTotalEmployee = data;
+        return this.nombreTotalEmployee
+      }
+    )
+
+
+
+  }
+
+  get nombreEtudiantFeminin(): number {
+    return this.etudiantService.nombreEtudiantFeminin;
+  }
+
+  set nombreEtudiantFeminin(value: number) {
+    this.etudiantService.nombreEtudiantFeminin = value;
+  }
+
+  get nombreEtudiantMasculin(): number {
+    return this.etudiantService.nombreEtudiantMasculin;
+  }
+
+  set nombreEtudiantMasculin(value: number) {
+    this.etudiantService.nombreEtudiantMasculin = value;
+  }
 
   get nombreTotalEmployee(): number {
     return this.employeeService.nombreTotalEmployee;
@@ -25,29 +68,65 @@ export class DashboardComponent implements OnInit {
     this.etudiantService.nombreTotalEtudiant = value;
   }
 
-  constructor(private employeeService:EmployeeService ,
-              private etudiantService:EtudiantService
-             )
-  {
 
-    this.etudiantService.counter().subscribe(
-      data => {
-        this.nombreTotalEtudiant = data;
-        return this.nombreTotalEtudiant
-      }
-    )
 
-    this.employeeService.counter().subscribe(
+  ngOnInit() {
+
+    const masculin$ = this.etudiantService.counter_masculin();
+    const feminin$ = this.etudiantService.counter_feminin();
+
+    this.etudiantService.counter_masculin().subscribe(
       data => {
-        this.nombreTotalEmployee = data;
-        return this.nombreTotalEmployee
+        this.nombreEtudiantMasculin = data;
+        return this.nombreEtudiantMasculin;
       }
     )
 
 
+    this.etudiantService.counter_feminin().subscribe(
+      data => {
+        this.nombreEtudiantFeminin = data;
+        return this.nombreEtudiantFeminin;
+      }
+    )
+
+
+    forkJoin([masculin$, feminin$]).subscribe(
+      ([masculin, feminin]) => {
+        this.nombreEtudiantMasculin = masculin;
+        this.nombreEtudiantFeminin = feminin;
+
+        this.data = {
+          labels: ['Masculin', 'Feminin'],
+          datasets: [
+            {
+              data: [this.nombreEtudiantMasculin, this.nombreEtudiantFeminin],
+              backgroundColor: [documentStyle.getPropertyValue('--blue-500'), documentStyle.getPropertyValue('--yellow-500')],
+              hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-400'), documentStyle.getPropertyValue('--yellow-400')]
+            }
+          ]
+        };
+      }
+    );
+
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--text-color');
+
+
+
+    this.options = {
+      plugins: {
+        legend: {
+          labels: {
+            usePointStyle: true,
+            color: textColor
+          }
+        }
+      }
+    };
   }
 
-  ngOnInit(): void {
-  }
-  revenues:number = 11500;
+
+
+
 }

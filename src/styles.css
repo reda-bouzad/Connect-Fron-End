@@ -1,13 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
 :root {
   --primary-color: #107637;
   --secondary-color: #eeeeee;
 }
 
 @font-face {
-  font-family: "JosefinSans-VariableFont_wght";
-  src: url("/assets/fonts/JosefinSans-VariableFont_wght.ttf");
+  font-family: "Anuphan-VariableFont_wght.ttf";
+  src: url("/assets/fonts/Anuphan/JosefinSans-Italic-VariableFont_wght.ttf");
 }
 * {
   margin: 0;

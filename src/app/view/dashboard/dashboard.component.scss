@@ -44,5 +44,27 @@
   color: #6e91be;
 }
 
+  .pie-chart{
+    background-color: red;
+    box-sizing: border-box;
+    margin-top: 2em;
+    display: flex;
+
+    .my-chart{
+      padding: 2em;
+      border: 1px solid #888888;
+      background-color: white;
+    }
+    .my-chart:hover{
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6); /* Increase the box shadow when the user hovers over the box */
+    }
+  }
+  .calender{
+    .my-calender{
+      max-width: 100px;
+    }
+  }
+
+
 
 

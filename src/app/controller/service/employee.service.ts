@@ -9,16 +9,14 @@ import {Observable} from "rxjs";
 export class EmployeeService {
   private _employee:Employee;
   private _employees:Array<Employee>;
-  private _url = 'http://localhost:8036/api/v1/etudiant/'
+  private _url = 'http://localhost:8036/api/v1/employe/'
   private _nombreTotalEmployee:number;
 
   public counter(): Observable<number> {
     return this.httpClient.get<number>(this._url + 'count');
   }
 
-  public findAll():Observable<Array<Employee>>{
-    return this.httpClient.get<Array<Employee>>(this._url)
-  }
+
   constructor(private _httpClient:HttpClient) {
 
   }

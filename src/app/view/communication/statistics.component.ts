@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-communication',
-  templateUrl: './statistics.component.html',
+  templateUrl: './communication.component.html',
   styleUrls: ['./statistics.component.scss']
 })
 export class StatisticsComponent implements OnInit {
+  currentDate: Date = new Date();
+  formattedDate: string;
 
-  constructor() { }
+  constructor(private datePipe: DatePipe) {
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.formattedDate = this.datePipe.transform(this.currentDate, 'EEEE, dd-MM-yyyy');
   }
 
 }

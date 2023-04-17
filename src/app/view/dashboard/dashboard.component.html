@@ -2,15 +2,19 @@
 
 <div class="container">
 
-  <div class="box box1">
-    <div class="icon">
-      <img width="50" src="/assets/img/student-colored.png" alt="" srcset="">
+  <a style="list-style-type: none; text-decoration: none" routerLink="/etudiant-list">
+    <div class="box box1">
+      <div class="icon">
+        <img width="50" src="/assets/img/student-colored.png" alt="" srcset="">
+      </div>
+      <div class="box-text">
+        <h3 class=" box-text-secondary ">  Etudiants </h3>
+        <h2 class=" box-text-primary "> {{nombreTotalEtudiant}} </h2>
+      </div>
     </div>
-    <div class="box-text">
-      <h3 class=" box-text-secondary ">  Etudiants </h3>
-      <h2 class=" box-text-primary "> {{nombreTotalEtudiant}} </h2>
-    </div>
-  </div>
+
+  </a>
+
 
   <div class="box box2">
     <div class="icon">
@@ -32,5 +36,17 @@
     </div>
   </div>
 
+
 </div>
+
+<div class="container">
+  <div class="pie-chart">
+    <p-chart class="my-chart" width="300" type="doughnut" [data]="data" [options]="options"></p-chart>
+  </div>
+
+</div>
+
+
+
+
 
