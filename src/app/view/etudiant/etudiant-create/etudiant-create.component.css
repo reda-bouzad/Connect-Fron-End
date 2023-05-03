@@ -1,0 +1,62 @@
+.wrapper {
+  text-align: center;
+}
+
+.my-container {
+  display: flex;
+  justify-content: space-around;
+  row-gap: 10px;
+  column-gap: 2em;
+  align-items: center;
+}
+
+.inner-container-1 {
+  display: flex;
+  border: 2px solid #423e3e;
+  border-radius: 10px;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+}
+
+.inner-container-2 {
+  display: flex;
+  column-gap: 15px;
+  row-gap: 20px;
+  flex-grow: 2;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.input-container {
+  flex-basis: 25%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  font-size: 16px;
+  color: #ccc;
+}
+
+input {
+  padding-left: 30px; /* to make room for the icon */
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/*# sourceMappingURL=etudiant-create.component.css.map */

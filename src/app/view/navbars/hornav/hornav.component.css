@@ -4,9 +4,56 @@
 }
 
 .hornav {
-  background-color: red;
+  display: flex;
+  border: 2px solid red;
   width: calc(100vw - 20rem);
   height: 6rem;
+  justify-content: center;
+  align-items: center;
+  column-gap: 3rem;
+  padding: 4rem;
+}
+
+.input-wrapper {
+  display: inline-block;
+  position: relative;
+  margin-left: auto;
+}
+.input-wrapper .my-input {
+  padding: 1rem 1.4rem 1rem 1rem;
+  background-color: #e0e0e0;
+  color: black;
+  border: 3px solid white;
+  border-radius: 1rem;
+}
+.input-wrapper .my-input::placeholder {
+  font-size: larger;
+  color: black;
+}
+.input-wrapper .my-icon {
+  color: black;
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Adjust the value as needed */
+  transform: translateY(-50%);
+}
+
+.img-container {
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  box-sizing: border-box;
+}
+
+.img-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=hornav.component.css.map */

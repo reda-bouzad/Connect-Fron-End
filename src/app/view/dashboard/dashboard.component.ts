@@ -75,20 +75,7 @@ export class DashboardComponent implements OnInit {
     const masculin$ = this.etudiantService.counter_masculin();
     const feminin$ = this.etudiantService.counter_feminin();
 
-    this.etudiantService.counter_masculin().subscribe(
-      data => {
-        this.nombreEtudiantMasculin = data;
-        return this.nombreEtudiantMasculin;
-      }
-    )
 
-
-    this.etudiantService.counter_feminin().subscribe(
-      data => {
-        this.nombreEtudiantFeminin = data;
-        return this.nombreEtudiantFeminin;
-      }
-    )
 
 
     forkJoin([masculin$, feminin$]).subscribe(

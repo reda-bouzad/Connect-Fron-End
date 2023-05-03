@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule} from "@angular/common/http";
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,14 +17,29 @@ import { SettingsComponent } from './view/settings/settings.component';
 import { HornavComponent } from './view/navbars/hornav/hornav.component';
 import { EmployeComponent } from './view/employe/employe.component';
 import { EtudiantComponent } from './view/etudiant/etudiant.component';
-import {TableModule} from "primeng/table";
+import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { TabViewModule } from 'primeng/tabview';
 import { ChartModule } from 'primeng/chart';
 import { CalendarModule } from 'primeng/calendar';
-import {FormsModule} from "@angular/forms";
-import {DatePipe} from "@angular/common";
-
+import { FormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
+import { SlideMenuModule } from 'primeng/slidemenu';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { EtudiantCreateComponent } from './view/etudiant/etudiant-create/etudiant-create.component';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { DropdownModule } from 'primeng/dropdown';
+import { FileUploadModule } from 'primeng/fileupload';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { CameraComponent } from './view/camera/camera.component';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 
 @NgModule({
   declarations: [
@@ -42,7 +56,8 @@ import {DatePipe} from "@angular/common";
     HornavComponent,
     EmployeComponent,
     EtudiantComponent,
-
+    EtudiantCreateComponent,
+    CameraComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,10 +70,21 @@ import {DatePipe} from "@angular/common";
     ChartModule,
     CalendarModule,
     FormsModule,
-
-
+    SlideMenuModule,
+    TabMenuModule,
+    DialogModule,
+    InputTextModule,
+    NzModalModule,
+    NzButtonModule,
+    DropdownModule,
+    FileUploadModule,
+    NzUploadModule,
+    NzIconModule,
+    NzMessageModule,
+    KeyFilterModule,
+    MessageModule,
   ],
   providers: [DatePipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

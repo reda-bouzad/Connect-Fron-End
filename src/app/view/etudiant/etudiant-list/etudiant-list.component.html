@@ -1,50 +1,120 @@
-
-
-
 <div class="container">
-<p-tabView>
-  <p-tabPanel header="classe 1">
-    <p-table #dtEtudiant
-             styleClass="p-datatable-gridlines" [value]="etudiants" [globalFilterFields]="['nom']">
-      <ng-template pTemplate="header">
-        <tr>
-          <th pSortableColumn="nom" style="width:20%">Name <p-sortIcon field="nom"></p-sortIcon></th>
-          <th pSortableColumn="prenom" style="width:20%"> Prenom <p-sortIcon field="prenom"></p-sortIcon></th>
-          <th>DateNaissance</th>
-        </tr>
-        <tr>
-          <th>
-            <input pInputText type="text" placeholder="Search by name" (input)="dtEtudiant.filter($any($event.target).value, 'nom', 'contains')">
-          </th>
-          <th>
-            <input pInputText type="text" placeholder="Search by prenom" (input)="dtEtudiant.filter($any($event.target).value, 'prenom', 'contains')">
-          </th>
-          <th>
-            <input pInputText type="date" placeholder="Search by date" (input)="dtEtudiant.filter($any($event.target).value, 'dateNaissance', 'contains')">
+  <div class="button-container">
+    <p-button (click)="showDialog()" class="my-btn" label="Rechercher">
+      <span class="my-icon">
+        <i class="fas fa-search"></i>
+      </span>
+    </p-button>
 
-          </th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-e>
-        <tr>
-          <td>{{e.nom}}</td>
-          <td>{{e.prenom}}</td>
-          <td>{{e.dateNaissance}}</td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </p-tabPanel>
-  <p-tabPanel header="classe 2">
-    <p>
-      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-      ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
-    </p>
-  </p-tabPanel>
-  <p-tabPanel header="classe 3">
-    <p>
-      At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
-      qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
-    </p>
-  </p-tabPanel>
-</p-tabView>
+    <p-dialog
+      (click)="toggleDialogBackground()"
+      [(visible)]="visible"
+      [draggable]="false"
+      [resizable]="false"
+      [style]="{ width: '90vw', height: '90vh' }"
+      header="Ajouter etudiant"
+    >
+    </p-dialog>
+
+    <p-button class="my-btn" label="Secondary" styleClass="p-button-secondary">
+      <span class="my-icon">
+        &nbsp;
+        <i class="far fa-id-card"></i>
+      </span>
+    </p-button>
+
+    <p-button
+      (click)="showModalMiddle()"
+      class="my-btn"
+      label="Ajouter"
+      styleClass="p-button-success"
+    >
+      <span class="my-icon">
+        <i class="fas fa-plus"></i>
+      </span>
+    </p-button>
+
+    <p-button class="my-btn" label="Corbeille" styleClass="p-button-warning">
+      <span class="my-icon">
+        <i class="fas fa-trash"></i>
+      </span>
+    </p-button>
+  </div>
+
+  <p-table
+    id="my-table"
+    #dtEtudiant
+    [globalFilterFields]="['nom']"
+    [value]="etudiants"
+    styleClass="p-datatable-gridlines"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="text-align: center">Image</th>
+        <th pSortableColumn="nom">
+          Name
+          <p-sortIcon field="nom"></p-sortIcon>
+        </th>
+        <th pSortableColumn="prenom">
+          Prenom
+          <p-sortIcon field="prenom"></p-sortIcon>
+        </th>
+        <th>DateNaissance</th>
+        <th>Action</th>
+      </tr>
+    </ng-template>
+    <ng-template let-e pTemplate="body">
+      <tr>
+        <td class="img-column">
+          <div class="img-container">
+            <img class="my-img" width="120" [src]="e.image" alt="" />
+          </div>
+        </td>
+        <td>{{ e.nom }}</td>
+        <td>{{ e.prenom }}</td>
+        <td>{{ e.dateNaissance }}</td>
+        <td class="action-button">
+          <p-button
+            nz-button
+            (click)="showModal_more_info()"
+            icon="pi pi-search"
+            styleClass="p-button-rounded p-button-success"
+          ></p-button>
+          <span style="margin: 0 5px"></span>
+          <!-- add margin between the two buttons -->
+          <p-button icon="pi pi-times" styleClass="p-button-danger"></p-button>
+
+
+          <nz-modal
+            [(nzVisible)]="isVisible"
+            (nzOnCancel)="handleCancel()"
+            [nzWidth]="'65vw'"
+            (nzOnOk)="handleOk()"
+          >
+
+            <ng-container *nzModalContent>
+              <h1> nom: {{e.nom}}</h1>
+            </ng-container>
+
+          </nz-modal>
+
+
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>
+
+<nz-modal
+  [(nzVisible)]="isVisibleMiddle"
+  nzCentered
+  (nzOnCancel)="handleCancelMiddle()"
+  (nzOnOk)="handleOkMiddle()"
+  [nzWidth]="'80vw'"
+  [nzFooter]="null"
+  [nzBodyStyle]="{ height: '400px' }"
+>
+  <ng-container *nzModalContent>
+    <app-etudiant-create></app-etudiant-create>
+  </ng-container>
+</nz-modal>

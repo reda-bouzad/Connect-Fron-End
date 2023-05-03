@@ -7,20 +7,21 @@ import { EtudiantListComponent } from './view/etudiant/etudiant-list/etudiant-li
 import { DevoirComponent } from './view/Devoir/devoir.component';
 import { SettingsComponent } from './view/settings/settings.component';
 import { StatisticsComponent } from './view/communication/statistics.component';
+import { CameraComponent } from './view/camera/camera.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'Devoir', component: DevoirComponent},
-  {path: 'communication', component: StatisticsComponent},
-  {path: 'Abscence', component: CoupensComponent},
-  {path: 'etudiant-list', component: EtudiantListComponent},
-  {path: 'media', component: MediaComponent},
-  {path: 'settings', component: SettingsComponent}
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'camera', component: CameraComponent },
+  { path: 'communication', component: StatisticsComponent },
+  { path: 'Abscence', component: CoupensComponent },
+  { path: 'etudiant-list', component: EtudiantListComponent },
+  { path: 'media', component: MediaComponent },
+  { path: 'settings', component: SettingsComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

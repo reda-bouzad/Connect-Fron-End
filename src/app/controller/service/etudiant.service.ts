@@ -1,24 +1,26 @@
 import { Injectable } from '@angular/core';
-import {Etudiant} from "../model/etudiant.model";
-import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
-import {Employee} from "../model/employee.model";
+import { Etudiant } from '../model/etudiant.model';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Employee } from '../model/employee.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EtudiantService {
-  private _etudiant:Etudiant;
-  private _etudiants:Array<Etudiant>;
-  private _nombreTotalEtudiant:number;
-  private _nombreEtudiantMasculin:number;
-  private _nombreEtudiantFeminin:number;
+  private _etudiant: Etudiant;
+  private _etudiants: Array<Etudiant>;
+  private _nombreTotalEtudiant: number;
+  private _nombreEtudiantMasculin: number;
+  private _nombreEtudiantFeminin: number;
+  private _url = 'http://localhost:8036/api/v1/etudiant/';
 
+  public findAll(): Observable<Array<Etudiant>> {
+    return this.httpClient.get<Array<Etudiant>>(this._url);
+  }
 
-  private _url = 'http://localhost:8036/api/v1/etudiant/'
-
-  public findAll():Observable<Array<Etudiant>>{
-    return this.httpClient.get<Array<Etudiant>>(this._url)
+  public save(): Observable<Etudiant> {
+    return this.httpClient.post<Etudiant>(this._url, this._etudiant);
   }
 
   public counter(): Observable<number> {
@@ -26,20 +28,21 @@ export class EtudiantService {
   }
 
   public counter_masculin(): Observable<number> {
-    return this._httpClient.get<number>(this._url + 'sexe-masculin')
+    return this._httpClient.get<number>(this._url + 'sexe-masculin');
   }
 
-  public counter_feminin(): Observable<number>{
-    return this.httpClient.get<number>(this._url + 'sexe-feminin')
+  public counter_feminin(): Observable<number> {
+    return this.httpClient.get<number>(this._url + 'sexe-feminin');
   }
 
-
-  constructor(private _httpClient:HttpClient) { }
+  constructor(private _httpClient: HttpClient) {}
 
   get etudiant(): Etudiant {
+    if (this._etudiant == null) {
+      return (this._etudiant = new Etudiant());
+    }
     return this._etudiant;
   }
-
   set etudiant(value: Etudiant) {
     this._etudiant = value;
   }
@@ -91,5 +94,4 @@ export class EtudiantService {
   set nombreEtudiantFeminin(value: number) {
     this._nombreEtudiantFeminin = value;
   }
-
 }

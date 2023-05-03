@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>Camera Détection</h1>
+  <p-table
+    [value]="detections"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    styleClass="p-datatable-gridlines"
+  >
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>Image</th>
+        <th>Etudiant</th>
+        <th>Time</th>
+        <th>Date</th>
+        <th>Status</th>
+      </tr>
+    </ng-template>
+    <ng-template let-detection pTemplate="body">
+      <tr>
+        <td class="img-column">
+          <div class="img-container">
+            <img class="my-img" width="120" [src]="detection.etudiant.image" alt="" />
+          </div>
+        </td>
+        <td>{{ detection.etudiant.nom + " " +  detection.etudiant.prenom }}</td>
+        <td>{{ detection.identified.time }}</td>
+        <td>{{ detection.identified.date }}</td>
+
+        <td>
+          <p-message  severity="success" text="Détecté"></p-message>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

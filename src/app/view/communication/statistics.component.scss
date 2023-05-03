@@ -1,9 +1,12 @@
 .container {
   display: flex;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
 }
 
 .left-side {
-  width: calc(40%);
+  width: calc(45%);
   height: 100vh;
   background-color: #E9EFFD;
   border-radius: 60px;
@@ -12,40 +15,60 @@
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
+  overflow: hidden;
 }
 
-.boxes-container{
+.boxes-container {
   background-color: #E9EFFD;
   overflow-y: auto;
-  height: 100vh;
+  height: 85vh;
 }
-
 
 .box {
   display: flex;
   flex-direction: row;
   color: white;
-  padding: 1.7em;
+  padding: 2em;
   margin: 2em;
   border-radius: 20px;
   row-gap: 3em;
   column-gap: 1.5em;
   max-height: 50%;
-
 }
-
 
 .box:hover {
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
   transform: scale(1.1);
   border: 3px solid red;
+}
 
+.my-icon{
+  color: white;
+  background-color:#3a86fe;
+  font-size:40px;
+  font-weight: lighter;
+  border-radius:15px;
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  margin: 20px 20px 20px auto;
+}
+
+.my-icon:hover{
+  cursor: pointer;
+  background-color: #1454d3;
 }
 
 .text-container {
+  padding-top: 10px;
+  padding-left: 20px;
   font-family: AnjaliOldLipi;
   font-size: medium;
+}
+.box-0{
+  display: flex;
+  height: 15vh;
 }
 
 .box-1 {
@@ -69,7 +92,7 @@
 }
 
 .right-side {
-  width: calc(60%);
+  width: calc(55%);
   height: 100vh;
   background-color: #efb7b7;
 }

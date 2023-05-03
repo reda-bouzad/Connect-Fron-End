@@ -2,4 +2,54 @@
   padding: 3rem;
 }
 
+.button-container {
+  display: flex;
+  margin: 20px;
+  justify-content: flex-end;
+}
+
+.my-btn {
+  margin-right: 10px;
+}
+
+tr {
+  padding: 20px;
+  margin: 20px;
+}
+
+.my-model {
+  margin-left: 20rem;
+}
+
+.custom-dialog {
+  background-color: red;
+}
+
+i::before {
+  padding-right: 15px;
+}
+
+.inner-model {
+  display: flex;
+  flex-direction: column;
+}
+
+.img-container {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  box-sizing: border-box;
+}
+
+.img-column {
+  display: flex;
+  justify-content: center;
+  algin-items: center;
+}
+
 /*# sourceMappingURL=etudiant-list.component.css.map */
